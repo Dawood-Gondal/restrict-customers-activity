@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    M2Commerce Enterprise
+ * @package     M2Commerce_RestrictCustomersActivity
+ * @copyright   Copyright (c) 2023 M2Commerce Enterprise
+ * @author      dawoodgondaldev@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="M2Commerce\RestrictCustomersActivity\Model\Restriction\Pool">
+        <arguments>
+            <argument name="restrictions" xsi:type="array">
+                <item name="byEmail" xsi:type="array">
+                    <item name="email" xsi:type="string">M2Commerce\RestrictCustomersActivity\Model\Restriction\Email</item>
+                </item>
+                <item name="byPhone" xsi:type="array">
+                    <item name="phone" xsi:type="string">M2Commerce\RestrictCustomersActivity\Model\Restriction\Phone</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

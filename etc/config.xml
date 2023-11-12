@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    M2Commerce Enterprise
+ * @package     M2Commerce_RestrictCustomersActivity
+ * @copyright   Copyright (c) 2023 M2Commerce Enterprise
+ * @author      dawoodgondaldev@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <customerRestriction>
+            <byEmail>
+                <enabled>0</enabled>
+                <error_message>You are not allowed to login/place order on website. Kindly contact site admin at support@admin.com</error_message>
+            </byEmail>
+            <byPhone>
+                <enabled>0</enabled>
+                <error_message>You are not allowed to login/place order on website. Kindly contact site admin at support@admin.com</error_message>
+            </byPhone>
+        </customerRestriction>
+    </default>
+</config>

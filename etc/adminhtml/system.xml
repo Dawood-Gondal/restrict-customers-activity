@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    M2Commerce Enterprise
+ * @package     M2Commerce_RestrictCustomersActivity
+ * @copyright   Copyright (c) 2023 M2Commerce Enterprise
+ * @author      dawoodgondaldev@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="commerce_enterprise" translate="label" sortOrder="400">
+            <label>Commerce Enterprise</label>
+        </tab>
+        <section id="customerRestriction" translate="label" type="text" sortOrder="325" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customers Restriction</label>
+            <tab>commerce_enterprise</tab>
+            <resource>M2Commerce_RestrictCustomersActivity::customerRestrictConfig</resource>
+            <group id="byEmail" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Restrict By Email</label>
+                <field id="enabled" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Restriction Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="patterns" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Patterns</label>
+                    <frontend_model>M2Commerce\RestrictCustomersActivity\Block\Adminhtml\System\Config\PatternMap</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>
+                        <![CDATA[Email Patterns use php preg_match function i.e if email contains the added patterns those emails will be blocked.]]></comment>
+                </field>
+                <field id="error_message" translate="label" sortOrder="100" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Message For Customer</label>
+                </field>
+            </group>
+            <group id="byPhone" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Restrict By Phone Number</label>
+                <field id="enabled" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Restriction Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="patterns" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Phone Patterns</label>
+                    <frontend_model>M2Commerce\RestrictCustomersActivity\Block\Adminhtml\System\Config\PatternMap</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>
+                        <![CDATA[Phone Patterns use php preg_match function i.e if phone contains the added patterns those phone numbers will be blocked.]]></comment>
+                </field>
+                <field id="error_message" translate="label" sortOrder="100" type="text" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Message For Customer</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
