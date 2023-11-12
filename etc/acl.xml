@@ -14,7 +14,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="M2Commerce_RestrictCustomersActivity::customerRestrictConfig" title="M2C - Restrict Customers Activity Settings"/>
+                            <resource id="M2Commerce_RestrictCustomersActivity::customerRestrictConfig" title="M2C - Restrict Customers Activity"/>
                         </resource>
                     </resource>
                 </resource>

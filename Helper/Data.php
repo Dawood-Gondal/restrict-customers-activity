@@ -82,11 +82,11 @@ class Data extends AbstractHelper
     /**
      * @param $restriction
      * @param $path
-     * @return bool
+     * @return mixed
      */
     public function getRestrictionData($restriction, $path)
     {
-        return (bool)$this->scopeConfig->getValue(
+        return $this->scopeConfig->getValue(
             'customerRestriction/' . $restriction . '/' . $path,
             ScopeInterface::SCOPE_STORE
         );

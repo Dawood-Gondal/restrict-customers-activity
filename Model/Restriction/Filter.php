@@ -8,6 +8,8 @@
 
 namespace M2Commerce\RestrictCustomersActivity\Model\Restriction;
 
+use M2Commerce\RestrictCustomersActivity\Helper\Data as RestrictionHelper;
+
 /**
  * Class Filter
  */
@@ -20,10 +22,10 @@ class Filter
      * @param array $patterns
      * @return bool
      */
-    public function isAnyPatternValid($value, array $patterns)
+    public function isAnyPatternValid($value, array $patterns, $type)
     {
         foreach ($patterns as $pattern) {
-            if ($this->isPatternValid($value, $pattern)) {
+            if ($this->isPatternValid($value, $pattern, $type)) {
                 return true;
             }
         }
@@ -37,10 +39,14 @@ class Filter
      * @param string $pattern
      * @return bool
      */
-    public function isPatternValid($value, $pattern)
+    public function isPatternValid($value, $pattern, $type)
     {
         try {
-            return preg_match('#' . $pattern . '#si', $value);
+            if ($type == RestrictionHelper::RESTRICT_BY_EMAIL) {
+                return preg_match('#' . $pattern . '#si', $value);
+            } else {
+                return $pattern == $value;
+            }
         } catch (\Exception $e) {
             return false;
         }

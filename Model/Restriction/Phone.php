@@ -52,7 +52,7 @@ class Phone implements RestrictionInterface
         );
 
         if (!empty($phonePatterns)) {
-            return $this->restrictionFilter->isAnyPatternValid($value, $phonePatterns);
+            return $this->restrictionFilter->isAnyPatternValid($value, $phonePatterns, RestrictionHelper::RESTRICT_BY_PHONE);
         }
         return true;
     }

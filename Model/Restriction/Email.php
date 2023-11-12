@@ -52,7 +52,7 @@ class Email implements RestrictionInterface
         );
 
         if (!empty($emailPatterns)) {
-            return $this->restrictionFilter->isAnyPatternValid($value, $emailPatterns);
+            return $this->restrictionFilter->isAnyPatternValid($value, $emailPatterns, RestrictionHelper::RESTRICT_BY_EMAIL);
         }
         return true;
     }
